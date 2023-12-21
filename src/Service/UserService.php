@@ -5,14 +5,17 @@ namespace App\Service;
 use App\Entity\User;
 use App\Exception\AlreadyExistsException;
 use App\Repository\UserRepository;
+use App\Utility\SecureHasher;
 
 class UserService
 {
     private UserRepository $userRepository;
+    private SecureHasher $secureHasher;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, SecureHasher $secureHasher)
     {
         $this->userRepository = $userRepository;
+        $this->secureHasher = $secureHasher;
     }
 
     /**
@@ -28,6 +31,7 @@ class UserService
             throw new AlreadyExistsException("User exist with this email!");
         }
 
+        $user->setPassword($this->secureHasher->hash($user->getPassword()));
         return $this->userRepository->saveUser($user);
     }
 
