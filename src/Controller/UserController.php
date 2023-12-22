@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Dto\UserDto;
+use App\ApiResource\UserDto;
 use App\Exception\AlreadyExistsException;
 use App\Mapper\UserMapper;
 use App\Service\UserService;
