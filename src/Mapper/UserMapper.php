@@ -2,7 +2,7 @@
 
 namespace App\Mapper;
 
-use App\Dto\UserDto;
+use App\ApiResource\UserDto;
 use App\Entity\User;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
