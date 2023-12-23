@@ -27,7 +27,6 @@ class UserMapper
         return $this->serializer->deserialize($json, User::class, 'json');
     }
 
-
     /**
      * @param User $user
      * @return UserDto
